@@ -3,7 +3,6 @@ org 0x1000
 
 jmp kernel
 
-%include "global/functions.asm"
 %include "kernel/api.asm"
 
 bootMsg:
@@ -15,9 +14,6 @@ kernel:
 	mov al, 0x03
 	int 0x10
 
-	mov si, bootMsg
-	call printString
-
 	; load API
 	xor ax, ax
 	mov es, ax
@@ -27,6 +23,10 @@ kernel:
 	mov [es:si], cs
 
 	mov ax, 0x00
+	int 0x30
+
+	mov ah, 0x01
+	mov si, bootMsg
 	int 0x30
 
 	jmp $

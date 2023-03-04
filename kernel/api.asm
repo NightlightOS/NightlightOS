@@ -8,7 +8,29 @@ interrupt_test:
 	pop ax
 	iret
 
+interrupt_print_string:
+	push ax
+	push si
+
+	mov ah, 0x0E
+
+	.loop:
+		lodsb
+		cmp al, 0
+		je .done
+		int 0x10
+		jmp .loop
+	.done:
+		pop si
+		pop ax
+
+		iret
+
 interrupt_handler:
 	cmp ax, 0x00
 	jmp interrupt_test
+
+	cmp ax, 0x01
+	jmp interrupt_print_string
+	
 	iret
