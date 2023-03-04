@@ -43,6 +43,7 @@ interrupt_string_length:
 
 	push ax
 	push si
+	push bx
 	xor bx, bx ; counter
 
 	.loop:
@@ -56,6 +57,7 @@ interrupt_string_length:
 		pop ax
 	
 		mov ax, bx
+		pop bx
 		iret
 		
 interrupt_handler:
@@ -64,8 +66,5 @@ interrupt_handler:
 
 	cmp ax, 0x01
 	je interrupt_print_string
-
-	cmp ax, 0x02
-	je interrupt_string_length
 	
 	iret
