@@ -44,14 +44,14 @@ sectorsError:
 
 printString:
     mov ah, 0x0E
-    .loop:
-        lodsb
-        cmp al, 0
-        je .done
-        int 0x10
-        jmp .loop
-    .done:
-        ret
+.loop:
+    lodsb
+    cmp al, 0
+    je .done
+    int 0x10
+    jmp .loop
+.done:
+    ret
 
 diskErrorMsg:    db "Disk error", 0
 sectorsErrorMsg: db "Sectors read error", 0
