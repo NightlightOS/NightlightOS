@@ -28,9 +28,9 @@ interrupt_print_string:
 
 interrupt_handler:
 	cmp ax, 0x00
-	jmp interrupt_test
+	je interrupt_test
 
 	cmp ax, 0x01
-	jmp interrupt_print_string
+	je interrupt_print_string
 	
 	iret

@@ -22,10 +22,7 @@ kernel:
 	mov si, 0xC2
 	mov [es:si], cs
 
-	mov ax, 0x00
-	int 0x30
-
-	mov ah, 0x01
+	mov ax, 0x01
 	mov si, bootMsg
 	int 0x30
 
