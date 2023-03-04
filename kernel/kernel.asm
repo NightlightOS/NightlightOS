@@ -29,4 +29,3 @@ kernel:
 	jmp $
 
 times 4096-($-$$) db 0
-dw 0xAA55
