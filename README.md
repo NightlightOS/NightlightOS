@@ -14,4 +14,4 @@ make run
 This will open NightlightOS in QEMU
 
 ## docs
-See [the docs](https://github.com/NightlightOS/NightlightOS/tree/main/docs)
+See [the docs](https://github.com/NightlightOS/NightlightOS/tree/main/doc)
