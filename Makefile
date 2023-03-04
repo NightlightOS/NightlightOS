@@ -21,7 +21,7 @@ bin/kernel.bin: $(KERNEL_ASM)
 	@echo " NASM      kernel"
 
 .PHONY: run
-run:
+run: build
 	qemu-system-x86_64 -fda nightlight.flp
 
 .PHONY: clean
