@@ -1,6 +1,8 @@
 # NightlightOS
 A simple 16-bit operating system made for real mode
 
+Don't try it yet, it's just a hello world
+
 # Building
 ```
 $ make
