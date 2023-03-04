@@ -1,19 +1,27 @@
 bits 16
 org 0x7C00
 
-; Set up the stack
-mov ax, 0x9000
-mov ss, ax
-mov sp, 0xFFFF
+jmp bootloader
 
-; Load kernel from first sector of drive
-mov bx, 0x1000    ; Destination address for kernel
-mov dh, 12         ; Number of sectors to read (4 kiB)
-mov dl, 0         ; Drive number (0 = first drive)
-call diskLoad
+times 9-($-$$) db 0
 
-; Jump to the kernel
-jmp 0x1000
+db "YSFS" ; Disk name
+db "NightlightOS", 0, 0, 0, 0
+
+bootloader:
+	; Set up the stack
+	mov ax, 0x9000
+	mov ss, ax
+	mov sp, 0xFFFF
+
+	; Load kernel from first sector of drive
+	mov bx, 0x1000    ; Destination address for kernel
+	mov dh, 12         ; Number of sectors to read (4 kiB)
+	mov dl, 0         ; Drive number (0 = first drive)
+	call diskLoad
+
+	; Jump to the kernel
+	jmp 0x1000
 
 diskLoad:
     pusha

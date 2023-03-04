@@ -11,4 +11,4 @@ interrupt_test:
 interrupt_handler:
 	cmp ax, 0x00
 	jmp interrupt_test
-	ret
+	iret
