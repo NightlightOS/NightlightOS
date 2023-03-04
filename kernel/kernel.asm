@@ -6,7 +6,7 @@ jmp kernel
 %include "kernel/api.asm"
 
 bootMsg:
-	db "Welcome to NightlightOS", 0
+	db "Welcome to NightlightOS", 10, 0
 
 kernel:
 	; switch to text mode

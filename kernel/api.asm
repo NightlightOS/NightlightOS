@@ -18,6 +18,14 @@ interrupt_print_string:
 		lodsb
 		cmp al, 0
 		je .done
+		cmp al, 10
+		je .newLine
+		int 0x10
+		jmp .loop
+	.newLine:
+		mov al, 13
+		int 0x10
+		mov al, 10
 		int 0x10
 		jmp .loop
 	.done:

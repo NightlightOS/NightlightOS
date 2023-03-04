@@ -16,7 +16,7 @@ bootloader:
 
 	; Load kernel from first sector of drive
 	mov bx, 0x1000    ; Destination address for kernel
-	mov dh, 12         ; Number of sectors to read (4 kiB)
+	mov dh, 12        ; Number of sectors to read (4 kiB)
 	mov dl, 0         ; Drive number (0 = first drive)
 	call diskLoad
 
