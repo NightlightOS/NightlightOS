@@ -3,7 +3,7 @@ org 0x7C00
 
 jmp bootloader
 
-times 9-($-$$) db 0
+times 8-($-$$) db 0
 
 db "YSFS" ; Disk name
 db "NightlightOS", 0, 0, 0, 0
