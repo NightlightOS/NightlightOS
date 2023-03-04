@@ -1,17 +1,19 @@
 # NightlightOS
 A simple 16-bit operating system made for real mode
 
-# Build
-`make`
+# Building
+```
+$ make
+```
 
 This will create a nightlight.flp file, which is a 720K floppy disk image
 
-# Run
+# Running
 ```
-make run
+$ make run
 ```
 
 This will open NightlightOS in QEMU
 
-## docs
+## Documentation
 See [the docs](https://github.com/NightlightOS/NightlightOS/tree/main/doc)

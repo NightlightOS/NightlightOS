@@ -1,9 +1,7 @@
 # Kernel API
 
-The kernel API can be called using the interrupt `0x30`, with the function number in `ax`
+The Kernel API can be called using the interrupt `0x30`, with the function number in `ax`
 
-## ax=0x0001 - print string
-
-Parameters: si = pointer to string
-
-Prints the given string to the screen
+| ax | params                 | what it does    |
+|----|------------------------|-----------------|
+| 1h | si - pointer to string | prints a string |
