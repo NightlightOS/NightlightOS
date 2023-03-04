@@ -9,6 +9,9 @@ interrupt_test:
 	iret
 
 interrupt_print_string:
+	; Parameters
+	; si = string
+
 	push ax
 	push si
 
@@ -34,11 +37,35 @@ interrupt_print_string:
 
 		iret
 
+interrupt_string_length:
+	; Parameters
+	; si = string
+
+	push ax
+	push si
+	xor bx, bx ; counter
+
+	.loop:
+		lodsb
+		cmp al, 0
+		je .done
+		inc bx
+		jmp .loop
+	.done:
+		pop si
+		pop ax
+	
+		mov ax, bx
+		iret
+		
 interrupt_handler:
 	cmp ax, 0x00
 	je interrupt_test
 
 	cmp ax, 0x01
 	je interrupt_print_string
+
+	cmp ax, 0x02
+	je interrupt_string_length
 	
 	iret
