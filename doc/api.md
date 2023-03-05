@@ -4,7 +4,8 @@ The Kernel API can be called using the interrupt `0x30`, with the function numbe
 
 Return values are stored in ax
 
-| ax | params                 | what it does                  | returns    |
-|----|------------------------|------------------------------ | ---------- |
-| 1h | si - pointer to string | prints a string               |            |
-| 2h | si - pointer to string | gets the length of the string | the length |
+| ax | params                                                                     | what it does                  | returns    |
+|----|--------------------------------------------------------------------------- |------------------------------ | ---------- |
+| 1h | si - pointer to string                                                     | prints a string               |            |
+| 2h | si - pointer to string                                                     | gets the length of the string | the length |
+| 3h | si - pointer to filename, es = segment to load at, di = address to load at | loads the contents of a file  |            |
