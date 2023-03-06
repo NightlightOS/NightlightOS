@@ -5,7 +5,7 @@ jmp kernel
 
 %include "kernel/api.asm"
 
-bootMsg: db "Welcome to NightlightOS", 10, 0
+initPath: db "/init.nl", 0
 
 kernel:
 	; switch to text mode
@@ -21,9 +21,15 @@ kernel:
 	mov si, 0xC2
 	mov [es:si], cs
 
-	mov ax, 0x01
-	mov si, bootMsg
+	; load init program
+	mov ax, 0x03     ; load file
+	mov bx, 0x0012
+	mov es, bx       ; init sector
+	xor di, di       ; 0x0000
+	mov si, initPath
 	int 0x30
+
+	jmp 0x0012:0x0000
 
 	jmp $
 
