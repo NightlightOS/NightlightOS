@@ -162,15 +162,15 @@ interrupt_read_file:
 		mov si, .diskErrorMsg
 		int 0x30
 		jmp $
-	.diskErrorMsg: db "FATAL: Disk error", 10, 0
+	.diskErrorMsg: db "FATAL: Disk Error", 10, 0
 
 	.sectorError:
 		mov ax, 0x01
 		mov si, .sectorErrorMsg
 		int 0x30
 		jmp $
-	.sectorErrorMsg: db "FATAL: Sector error", 10, 0
-		
+	.sectorErrorMsg: db "FATAL: Sector Error", 10, 0
+
 interrupt_handler:
 	cmp ax, 0x00
 	je interrupt_test

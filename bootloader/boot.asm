@@ -61,8 +61,8 @@ printString:
 	.done:
 	    ret
 
-diskErrorMsg:    db "Disk error", 0
-sectorsErrorMsg: db "Sectors read error", 0
+diskErrorMsg:    db "Disk Error", 0
+sectorsErrorMsg: db "Sector Reading Error", 0
 
 times 510-($-$$) db 0
 dw 0xAA55
